@@ -17,6 +17,7 @@ require("./tasks/random-number-consumer")
 require("./tasks/api-consumer")
 require("./tasks/keepers")
 require("@appliedblockchain/chainlink-plugins-fund-link")
+require('solidity-coverage')
 
 require('dotenv').config()
 
@@ -31,13 +32,13 @@ const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "Your etherscan API k
 const PRIVATE_KEY = process.env.PRIVATE_KEY || "your private key"
 
 module.exports = {
-    defaultNetwork: "hardhat",
+    defaultNetwork: 'hardhat',
     networks: {
         hardhat: {
             // // If you want to do some forking, uncomment this
-            // forking: {
-            //   url: MAINNET_RPC_URL
-            // }
+             forking: {
+               url: MAINNET_RPC_URL
+             }
         },
         localhost: {
         },
@@ -103,7 +104,7 @@ module.exports = {
     solidity: {
         compilers: [
             {
-                version: "0.8.7"
+                version: "0.8.9"
             },
             {
                 version: "0.6.6"
